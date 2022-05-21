@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --cor-1: #eb5e28;
+    --cor-2: #003566;
+    --cor-3: #fafff0;
+    --cor-4: #252422;
+    --cor-5: #0a0908;
+
+    --font-san: font-family: 'Lato', sans-serif;
+    --font-serif: font-family: 'Merriweather', serif;
+}
+
+body {
+    background-color: var(--cor-5);
+    color: var(--cor-3);
+}
+
+header {
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.alertify {
+    color: var(--cor-5);
+}
+
+.ajs-warning {
+    color: var(--cor-5);
+}
+
+.container {
+    max-width: 700px;
+    border: 1px solid var(--cor-4);
+    margin: auto;
+    padding: 20px 20px 50px 20px;
+    position: relative;
+}
+
+.questao {
+    width: 100%;
+    border: 2px solid var(--cor-1);
+    padding: 20px 0;
+    margin: 20px 0;
+    transition: .5s;
+    cursor: pointer;
+    display: flex;
+}
+
+.questao p, .radio {
+    margin: 0 20px;
+}
+
+.questao:hover {
+    background-color: var(--cor-1);
+    transition: .2s;
+    border-radius: 10px;
+}
+
+.enviar {
+    background-color: var(--cor-2);
+    border: none;
+    padding: 10px 15px;
+    color: var(--cor-3);
+    transition: .2s;
+    position: absolute;
+    right: 16px;
+    cursor: pointer;
+}
+
+.enviar:hover {
+    background-color: var(--cor-1);
+    transform: scale(1.1);
+    right: 20px;
+    border-radius: 5px;
+}
