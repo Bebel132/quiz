@@ -4,10 +4,10 @@ const questoes = [
         respostas: [
             22,
             26,
-            32,
+            36,
             12
         ],
-        respostaCorreta: 32
+        respostaCorreta: 36
     },
     {
         questao: "como que tanka o Bostil?",
