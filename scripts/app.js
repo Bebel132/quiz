@@ -20,7 +20,7 @@ const questoes = [
         respostaCorreta: "simplesmente intankavel o Bostil"
     },
     {
-        questao: "o que fazendo agora",
+        questao: "o que estou fazendo agora",
         respostas: [
             "أفكر في امرأة جميلة",
             "estou atrás de você",
