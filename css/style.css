@@ -82,3 +82,7 @@ header {
     right: 20px;
     border-radius: 5px;
 }
+
+#final h1, p, ul, li {
+    margin: 20px 0;
+}

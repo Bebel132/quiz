@@ -4,10 +4,10 @@ const questoes = [
         respostas: [
             22,
             26,
-            32,
+            36,
             12
         ],
-        respostaCorreta: 32
+        respostaCorreta: 36
     },
     {
         questao: "como que tanka o Bostil?",
@@ -41,9 +41,13 @@ const questoes = [
     },
 ]
 
+$('#final').hide();
+
 let radio = $('.radio')
 let erro = true;
 let questao = 0;
+let acertos = 0;
+let qAcertadas = [];
 
 $(".enviar").click(() => {
     let massa = []
@@ -66,9 +70,14 @@ $(".enviar").click(() => {
     } else {
         if(erro){
             alertify.error("respota incorreta!")
+            questao++
+            qAcertadas.push(false)
+            gerarQuestao(questao, questoes)
         } else if(erro == false){
             alertify.success("resposta correta!")
             questao++
+            acertos++
+            qAcertadas.push(true)
             gerarQuestao(questao, questoes)
         }
     }
@@ -78,7 +87,7 @@ $(".enviar").click(() => {
 function gerarQuestao(questao, arr){
     if(questao != 4){
         for(key = 0; key<=questao; key++){
-            $('.nQuestao').text(key+1)
+            $('.nQuestao').text(`${key+1} de ${questoes.length}`)
             $('.pergunta').text(arr[key].questao);
             
             for(let i=0; i<4; i++){
@@ -87,7 +96,25 @@ function gerarQuestao(questao, arr){
             }
         }
     } else {
-        document.write("cabo")
+        $('#quiz').fadeOut();
+        $('#final').fadeIn(1000);
+        let qErradas = 0;
+        for(let i=0; i<questoes.length; i++){
+            if(qAcertadas[i]){
+                $('#resultado').append(`<li>${(i+1)}. ${questoes[i].questao}:<br>
+                  -  ${questoes[i].respostaCorreta}. ✔️</li>`)
+            } else {
+                qErradas++
+            }
+        }
+        if(qErradas==questoes.length){
+            $('#resultado').append(`<li>nenhuma, burro</li>
+            <img src="https://i.pinimg.com/474x/19/ea/6e/19ea6ecec0d29aa48bd78a79b87e53d2.jpg" width="100" height="100">`)
+        } else if(qErradas == 0){
+            $('#resultado').append(`<img src="https://c.tenor.com/P3kaHDtg9cQAAAAd/xue-hua-piao-piao-perro-llama-rana.gif" width="100" height="100">`)
+        } else if(qErradas > 0 && qErradas < questoes.length){
+            $('#resultado').append(`<img src="https://c.tenor.com/s45HmDEGbUsAAAAC/3d-monkey-monkey-eating.gif" width="100" height="100">`)
+        }
     }
 }
 
