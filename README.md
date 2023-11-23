@@ -1,3 +1,3 @@
 # quiz
 
-link: https://bebel132.github.io/quizfoda/
+link: https://bebel132.github.io/quiz/
